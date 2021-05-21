@@ -5,6 +5,8 @@
 
 - [API URL with key](https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=c5d6dda1-a1ed-43ac-9a0c-6f4d7e6227a6)
 
+- [CoinGecko API](https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum&order=market_cap_desc&per_page=100&page=1&sparkline=false)
+
 - [ Frontend github repo link](https://github.com/BPdg06/cryptoApp_frontend/tree/dev)
 - [Frontend deployment link](https://mystifying-villani-51e1b2.netlify.app/)
 
@@ -34,6 +36,72 @@ From the returned data we will be able to see the some of the data depending on 
       "platform": null
     },
          
+```
+
+CoinGecko API Data
+```
+[
+  {
+    "id": "bitcoin",
+    "symbol": "btc",
+    "name": "Bitcoin",
+    "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+    "current_price": 36482,
+    "market_cap": 691576098773,
+    "market_cap_rank": 1,
+    "fully_diluted_valuation": 776067697689,
+    "total_volume": 76318315268,
+    "high_24h": 42252,
+    "low_24h": 36745,
+    "price_change_24h": -3821.2094276,
+    "price_change_percentage_24h": -9.48112,
+    "market_cap_change_24h": -85873174689.86401,
+    "market_cap_change_percentage_24h": -11.0455,
+    "circulating_supply": 18713700,
+    "total_supply": 21000000,
+    "max_supply": 21000000,
+    "ath": 64805,
+    "ath_change_percentage": -42.9739,
+    "ath_date": "2021-04-14T11:54:46.763Z",
+    "atl": 67.81,
+    "atl_change_percentage": 54399.55707,
+    "atl_date": "2013-07-06T00:00:00.000Z",
+    "roi": null,
+    "last_updated": "2021-05-21T16:05:13.327Z"
+  },
+  {
+    "id": "ethereum",
+    "symbol": "eth",
+    "name": "Ethereum",
+    "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880",
+    "current_price": 2419.36,
+    "market_cap": 280597385303,
+    "market_cap_rank": 2,
+    "fully_diluted_valuation": null,
+    "total_volume": 80980751864,
+    "high_24h": 2927.74,
+    "low_24h": 2378.73,
+    "price_change_24h": -388.54962695,
+    "price_change_percentage_24h": -13.83766,
+    "market_cap_change_24h": -57364547311.75836,
+    "market_cap_change_percentage_24h": -16.97367,
+    "circulating_supply": 115966407.624,
+    "total_supply": null,
+    "max_supply": null,
+    "ath": 4356.99,
+    "ath_change_percentage": -44.46522,
+    "ath_date": "2021-05-12T14:41:48.623Z",
+    "atl": 0.432979,
+    "atl_change_percentage": 558736.78441,
+    "atl_date": "2015-10-20T00:00:00.000Z",
+    "roi": {
+      "times": 87.01852095983482,
+      "currency": "btc",
+      "percentage": 8701.85209598348
+    },
+    "last_updated": "2021-05-21T16:07:06.947Z"
+  }
+]
 ```
 
 
