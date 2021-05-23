@@ -12,6 +12,7 @@
 
 - [ Backend github repo link](https://github.com/taylorhughes291/crypto-backend/tree/dev)
 - [ Backend deployment link](https://crypto-backend-project3.herokuapp.com/)
+- 
 
 ## Project Description
 
@@ -107,6 +108,7 @@ CoinGecko API Data
 
 ## Wireframes/ UX DESIGN COMP
 (https://www.behance.net/gallery/119211101/UIUX-Design-Cryptocurrency-payment-application?tracking_source=search_projects_recommended%7Cux%20case%20study)
+[Figma wireframes](https://www.figma.com/file/VpndDHiNv65YIYEUZQ4wD7/Wireframing-(Copy)?node-id=11196%3A441)
 
 
 
