@@ -33,6 +33,7 @@ function App() {
     coinBought: "",
     boughtAmount: 0
   })
+  const [coins, setCoins] = useState([])
 
   ///////////////////////////////
   // Functions
@@ -59,37 +60,55 @@ function App() {
         <Route
           path="/login"
         >
-          <Login />
+          <Login 
+            setUser={setUser}
+          />
         </Route>
         <Route
           path="/create"
         >
-          <CreateAccount />
+          <CreateAccount 
+            setUser={setUser}
+          />
         </Route>
         <Route
           path="/home"
         >
-          <Home />
+          <Home 
+            wallet={wallet}
+            coins={coins}
+          />
         </Route>
         <Route
           path="/wallet"
         >
-          <Wallet />
+          <Wallet 
+            wallet={wallet}
+            coins={coins}
+          />
         </Route>
         <Route
           path="/coins"
         >
-          <Coins />
+          <Coins 
+            coins={coins}
+          />
         </Route>
         <Route
           path="/transactions"
         >
-          <Transactions />
+          <Transactions 
+            transactions={transactions}
+          />
         </Route>
         <Route
           path="/exchange"
         >
-          <Exchange />
+          <Exchange 
+            coins={coins}
+            wallet={wallet}
+            user={user}
+          />
         </Route>
       </Switch>
     </div>
