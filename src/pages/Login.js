@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Spinner } from 'reactstrap';
 import PropTypes from 'prop-types'
+import {useState} from 'react'
 
 
 
@@ -30,30 +31,17 @@ const Login = (props) => {
         })
       }
   
-    FormGroup.propTypes = {
-        children: PropTypes.node,
-        // Applied the row class when true, does nothing when false
-        row: PropTypes.bool,
-        // Applied the form-check class when true, form-group when false
-        check: PropTypes.bool,
-        inline: PropTypes.bool,
-        // Applied the disabled class when the check and disabled props are true, does nothing when false
-        disabled: PropTypes.bool,
-        // Pass in a Component to override default element
-        tag: PropTypes.string, // default: 'div'
-        className: PropTypes.string,
-        cssModule: PropTypes.object,
-      };
+    
     
     return (
         <>
             <Form inline>
-            <FormGroup>
+            <FormGroup handleChange={handleChange}>
                 <Label for="exampleEmail" hidden>email</Label>
                 <Input type="email" name="email" id="exampleEmail" placeholder="Email" />
             </FormGroup>
             {' '}
-            <FormGroup>
+            <FormGroup handleChange={handleChange}>
                 <Label for="examplePassword" hidden>Password</Label>
                 <Input type="password" name="password" id="examplePassword" placeholder="Password" />
             </FormGroup>
