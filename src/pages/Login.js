@@ -1,7 +1,5 @@
 import React from 'react'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { Spinner } from 'reactstrap';
-import PropTypes from 'prop-types'
 import {useState} from 'react'
 
 

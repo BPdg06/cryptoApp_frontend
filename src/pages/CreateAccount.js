@@ -18,27 +18,30 @@ const CreateAccount = (props) => {
       }
     return (
         <>
-        <Form inline>
-        <FormGroup handleChange={handleChange}>
-            <Label for="exampleEmail" hidden>email</Label>
-            <Input type="email" name="email" id="exampleEmail" placeholder="First Name" />
-        </FormGroup>
-        {' '}
-        <FormGroup handleChange={handleChange}>
-            <Label for="exampleUsername" hidden>Username</Label>
-            <Input type="username" name="Username" id="exampleUsername" placeholder="Username" />
-        </FormGroup>
-        {' '}
-        <FormGroup handleChange={handleChange}>
-            <Label for="examplePassword" hidden>Password</Label>
-            <Input type="password" name="password" id="examplePassword" placeholder="Password" />
-        </FormGroup>
-        {' '}
-        <Button onClick={handleSubmit}>Submit</Button>
-        
-        </Form>
+            <h1>We Need Your Deets</h1>
+            <Form inline>
+            <FormGroup handleChange={handleChange}>
+                <Label for="exampleEmail" hidden>Whats your name?</Label>
+                <Input type="email" name="email" id="exampleEmail" placeholder="First Name" />
+            </FormGroup>
+            {' '}
+            <FormGroup handleChange={handleChange}>
+                <Label for="exampleUsername" hidden>What should we call you?</Label>
+                <Input type="username" name="Username" id="exampleUsername" placeholder="Username" />
+            </FormGroup>
+            {' '}
+            <FormGroup handleChange={handleChange}>
+                <Label for="examplePassword" hidden>Just make sure it isn't "password"</Label>
+                <Input type="password" name="password" id="examplePassword" placeholder="Password" />
+            </FormGroup>
+            {' '}
+            <Button
+            onClick={handleSubmit}
+            className="btn btn-med btn-danger btn-block">Submit</Button>
+            
+            </Form>
        
-    </> 
+        </> 
     )
 }
 
