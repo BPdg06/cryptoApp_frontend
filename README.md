@@ -13,6 +13,8 @@
 - [ Backend github repo link](https://github.com/taylorhughes291/crypto-backend/tree/dev)
 - [ Backend deployment link](https://crypto-backend-project3.herokuapp.com/)
 
+-[React Architecture](https://docs.google.com/drawings/d/1nE72xB7v6IeL5YWPenkpi9RB4VHtocJ5wkDkRXA__UI/edit?usp=sharing)
+
 ## Project Description
 
 Developing a paper trading Crypto Currency Trading App for those who wish they had money to put into crypto but dont. 
