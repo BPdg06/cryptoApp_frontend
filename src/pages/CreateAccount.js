@@ -4,9 +4,11 @@ import {useState} from 'react'
 
 const CreateAccount = (props) => {
     const [login, setLogin] = useState({})
-    const handleSubmit = (event) => {
-    console.log('handleSubmit')
-  }
+        const handleSubmit = (event) => {
+        event.preventDefault(); // Prevent Form from Refreshing
+        props.handleSubmit(formData); // Submit  desired function
+        props.history.push("/home"); //Push back to Home page
+          };
     const handleChange = (event) => {
         console.log('handleChange - value', event.target.value)
         console.log('handleChange - name', event.target.name)
@@ -37,7 +39,8 @@ const CreateAccount = (props) => {
             {' '}
             <Button
             onClick={handleSubmit}
-            className="btn btn-med btn-danger btn-block">Submit</Button>
+            className="btn btn-med btn-danger btn-block"
+            >Submit</Button>
             
             </Form>
        
