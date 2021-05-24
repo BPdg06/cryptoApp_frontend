@@ -1,7 +1,7 @@
 import './App.css';
 import {useState} from "react"
 import {Switch, Route} from "react-router-dom"
-import Login from "./Login"
+import Login from "./pages/Login"
 import CreateAccount from "./pages/CreateAccount"
 import Home from "./pages/Home"
 import Wallet from "./pages/Wallet"
