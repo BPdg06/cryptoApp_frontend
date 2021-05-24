@@ -8,6 +8,7 @@ import Wallet from "./pages/Wallet"
 import Coins from "./pages/Coins"
 import Transactions from "./pages/Transactions"
 import Exchange from "./pages/Exchange"
+import Nav from "./components/Nav"
 
 function App() {
 
@@ -111,6 +112,10 @@ function App() {
           />
         </Route>
       </Switch>
+      <footer>
+        <Nav />
+      </footer>
+
     </div>
   );
 }
