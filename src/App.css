@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~ Mobile Layouts ~~~~~~~~~~~~~~~~~~~~ */
+nav {
+  bottom: 0;
+  position: absolute;
+}
+
+
+
+
+/* ~~~~~~~~~~~~~~~~~~~~ Styles ~~~~~~~~~~~~~~~~~~~~ */
+body {
+  background-color: #F0F3F6;
+}
