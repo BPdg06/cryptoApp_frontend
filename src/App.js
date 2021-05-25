@@ -27,13 +27,13 @@ function App() {
     }],
     transactions: []
   })
-  const [transactions, setTransactions] = useState({
+  const [transactions, setTransactions] = useState([{
     userID: "",
     coinSold: "",
     soldAmount: 0,
     coinBought: "",
     boughtAmount: 0
-  })
+  }])
   const [coins, setCoins] = useState([])
 
   ///////////////////////////////
@@ -64,6 +64,26 @@ const handleCreate = (newUser) => {
    }
   }).then(() => getLogin());
 };
+  const getDbData = () => {
+    const url = process.env.REACT_APP_BACKENDURL
+    const getUrl = url + "/wallets/" + user
+    fetch(getUrl)
+    .then((response) => (response.json()))
+    .then((data) => {
+      setWallet(data.data.wallet)
+      setTransactions(data.data.transactions)
+    })
+  }
+
+  const getApiData = () => {
+    const url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+    fetch(url)
+    .then((response) => (response.json()))
+    .then((data) => {
+      setCoins(data)
+    })
+  }
+
   ///////////////////////////////
   // Render
   ///////////////////////////////
@@ -102,6 +122,8 @@ const handleCreate = (newUser) => {
           <Home 
             wallet={wallet}
             coins={coins}
+            getDbData={getDbData}
+            getApiData={getApiData}
           />
         </Route>
         <Route
@@ -136,10 +158,7 @@ const handleCreate = (newUser) => {
           />
         </Route>
       </Switch>
-      <footer>
         <Nav />
-      </footer>
-
     </div>
   );
 }
