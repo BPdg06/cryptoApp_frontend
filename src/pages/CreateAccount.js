@@ -3,11 +3,11 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import {useState} from 'react'
 
 const CreateAccount = (props) => {
-    const [user, setUser] = useState({props.setUser})
+    const [user, setUser] = useState({})
 
     const handleSubmit = (event) => {
             event.preventDefault(); // Prevent Form from Refreshing
-            props.handleSubmit(formData); // Submit  desired function
+            props.handleSubmit(); // Submit  desired function
             props.history.push("/home"); //Push back to Home page
     };
     const handleChange = (event) => {
@@ -24,17 +24,17 @@ const CreateAccount = (props) => {
             <h1>We Need Your Deets</h1>
             <Form inline onSubmit={handleSubmit}>
             <FormGroup >
-                <Label for="exampleEmail" hidden>Whats your name?</Label>
+                <Label for="exampleEmail" >Whats your name?</Label>
                 <Input type="name" name="name" id="exampleNAme" placeholder="First Name" />
             </FormGroup>
             {' '}
             <FormGroup >
-                <Label for="exampleUsername" hidden>What should we call you?</Label>
+                <Label for="exampleUsername" >What should we call you?</Label>
                 <Input type="username" name="Username" id="exampleUsername" placeholder="Username" />
             </FormGroup>
             {' '}
             <FormGroup >
-                <Label for="examplePassword" hidden>Just make sure it isn't "password"</Label>
+                <Label for="examplePassword" >Just make sure it isn't "password"</Label>
                 <Input type="password" name="password" id="examplePassword" placeholder="Password" />
             </FormGroup>
             {' '}
