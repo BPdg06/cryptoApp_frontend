@@ -40,6 +40,10 @@ function App() {
   // Functions
   ///////////////////////////////
 
+  const getDbData = () => {
+    const REACT_APP_BACKENDURL = process.env
+  }
+
   ///////////////////////////////
   // Render
   ///////////////////////////////
