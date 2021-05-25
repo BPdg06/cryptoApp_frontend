@@ -45,7 +45,9 @@ const Home = (props) => {
                 </Link>
             </div>
             <CoinChart 
-                coins={props.coin}
+                coins={props.coins}
+                wallet={props.wallet}
+
             />
         </>
     )

@@ -1,8 +1,8 @@
-div.wallet-widget {
+div.coin-chart {
     background-color: none;;
 }
 
-div.wallet-widget-cont {
+div.coin-chart-cont {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,5 +40,4 @@ img.coin-logo {
 
 h4 {
     margin: 0;
-    font-size: 10px;
 }
