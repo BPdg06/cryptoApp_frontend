@@ -9,6 +9,7 @@ import Coins from "./pages/Coins"
 import Transactions from "./pages/Transactions"
 import Exchange from "./pages/Exchange"
 import Nav from "./components/Nav"
+import WalletCoin from "./pages/WalletCoin"
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
   // Constants
   ///////////////////////////////
 
-  const [user, setUser] = useState("")
+  const [user, setUser] = useState("60abd8d25396770015385694")
   const [wallet, setWallet] = useState({
     name: "",
     password: "",
