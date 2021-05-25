@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import {useState} from 'react'
 
 const CreateAccount = (props) => {
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState({props.setUser})
 
     const handleSubmit = (event) => {
             event.preventDefault(); // Prevent Form from Refreshing
@@ -25,7 +25,7 @@ const CreateAccount = (props) => {
             <Form inline onSubmit={handleSubmit}>
             <FormGroup >
                 <Label for="exampleEmail" hidden>Whats your name?</Label>
-                <Input type="email" name="email" id="exampleEmail" placeholder="First Name" />
+                <Input type="name" name="name" id="exampleNAme" placeholder="First Name" />
             </FormGroup>
             {' '}
             <FormGroup >
