@@ -17,6 +17,10 @@ const Wallet = (props) => {
     // functions
     ///////////////////////
 
+    const handleSelect = (coin) => {
+        setSelectedCoin(coin)
+    }
+
     ///////////////////////
     // Render
     ///////////////////////
@@ -36,12 +40,13 @@ const Wallet = (props) => {
                 })
             return (
                 <Link
-                    to={`/wallet/${item.coin}`}
+                    to={item.coin === "USD" ?  "/wallet" :`/wallet/${item.coin}`}
                     key={index}
                 >
                     <div 
                         key={index}
                         className="wallet-widget-cont"
+                        onClick={() => handleSelect(item.coin)}
                     >
                         <div className="img-name-cont">
                             <div className="img-cont">
@@ -73,6 +78,8 @@ const Wallet = (props) => {
                         <WalletCoin
                             wallet={props.wallet}
                             coins={props.coins}
+                            selectedCoin={selectedCoin}
+                            transactions={props.transactions}
                         />
                     </Route>
                     <Route
