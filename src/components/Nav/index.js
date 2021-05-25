@@ -10,7 +10,7 @@ const Nav = (props) => {
                     <Link
                         to="/home"
                     >
-                        <i class="fas fa-home fa-2x"></i>
+                        <i className="fas fa-home fa-2x"></i>
                         <li>Home</li>
                     </Link>
                 </div>
@@ -18,7 +18,7 @@ const Nav = (props) => {
                     <Link
                         to="/wallet"
                     >
-                        <i class="fas fa-wallet fa-2x"></i>
+                        <i className="fas fa-wallet fa-2x"></i>
                         <li>Wallet</li>
                     </Link>
                 </div>
@@ -35,7 +35,7 @@ const Nav = (props) => {
                     <Link
                         to="/transactions"
                     >
-                        <i class="fas fa-bars fa-2x"></i>
+                        <i className="fas fa-bars fa-2x"></i>
                         <li>Transactions</li>
                     </Link>
                 </div>
@@ -43,7 +43,7 @@ const Nav = (props) => {
                     <Link
                         to="/coins"
                     >
-                        <i class="fas fa-coins fa-2x"></i>
+                        <i className="fas fa-coins fa-2x"></i>
                         <li>Coins</li>
                     </Link>
                 </div>

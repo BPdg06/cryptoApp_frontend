@@ -1,5 +1,5 @@
 import './App.css';
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import {Switch, Route} from "react-router-dom"
 import Login from "./pages/Login"
 import CreateAccount from "./pages/CreateAccount"
@@ -27,13 +27,13 @@ function App() {
     }],
     transactions: []
   })
-  const [transactions, setTransactions] = useState({
+  const [transactions, setTransactions] = useState([{
     userID: "",
     coinSold: "",
     soldAmount: 0,
     coinBought: "",
     boughtAmount: 0
-  })
+  }])
   const [coins, setCoins] = useState([])
 
   ///////////////////////////////
@@ -46,11 +46,12 @@ function App() {
     fetch(getUrl)
     .then((response) => (response.json()))
     .then((data) => {
-      console.log(data);
+      setWallet(data.data.wallet)
+      setTransactions(data.data.transactions)
     })
   }
 
-  getDbData()
+
 
   ///////////////////////////////
   // Render
