@@ -134,10 +134,7 @@ function App() {
           />
         </Route>
       </Switch>
-      <footer>
         <Nav />
-      </footer>
-
     </div>
   );
 }
