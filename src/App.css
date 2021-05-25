@@ -49,10 +49,25 @@ div.home-header {
   margin: 10px 5px 0;
 }
 
+.coin-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coin-data p, .coin-data h6 {
+  margin: 0;
+}
+
+
 
 
 
 /* ~~~~~~~~~~~~~~~~~~~~ Styles ~~~~~~~~~~~~~~~~~~~~ */
 body {
   background-color: #F0F3F6 !important;
+}
+
+.transaction-display {
+  border: 1px solid;
 }

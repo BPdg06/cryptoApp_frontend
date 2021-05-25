@@ -16,7 +16,7 @@ function App() {
   // Constants
   ///////////////////////////////
 
-  const [user, setUser] = useState("")
+  const [user, setUser] = useState("60abd8d25396770015385694")
   const [wallet, setWallet] = useState({
     name: "",
     password: "",
@@ -108,6 +108,7 @@ function App() {
           <Wallet 
             wallet={wallet}
             coins={coins}
+            transactions={transactions}
           />
         </Route>
         <Route
