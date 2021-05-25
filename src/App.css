@@ -43,6 +43,12 @@ nav {
   position: absolute;
 }
 
+div.home-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 5px 0;
+}
+
 
 
 

@@ -1,5 +1,5 @@
 import './App.css';
-import {useState, useEffect} from "react"
+import {useState} from "react"
 import {Switch, Route} from "react-router-dom"
 import Login from "./pages/Login"
 import CreateAccount from "./pages/CreateAccount"
