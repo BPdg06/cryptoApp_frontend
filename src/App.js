@@ -39,7 +39,31 @@ function App() {
   ///////////////////////////////
   // Functions
   ///////////////////////////////
+  const getLogin = () => {
+    fetch(url + '/wallets/login/:username/:password')
+    .then((response) => response.json())
+    .then((data) => {
+      setUser(data);
+    })
+  }
 
+  //handle create for the form
+const handleCreate = (newUser) => {
+  fetch(url + "/wallets/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: {
+      name: String,
+      username: String,
+      password: String,
+
+    
+    body: JSON.stringify(newUser),
+   }
+  }).then(() => getLogin());
+};
   ///////////////////////////////
   // Render
   ///////////////////////////////

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import {useState} from 'react'
 
@@ -28,6 +28,9 @@ const Login = (props) => {
           [name]: event.target.value
         })
       }
+      React.useEffect(() => {
+        getLogin();
+      }, []);
   
     
     

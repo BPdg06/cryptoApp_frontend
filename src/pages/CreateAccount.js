@@ -19,16 +19,19 @@ const CreateAccount = (props) => {
           [name]: event.target.value
         })
       }
+      React.useEffect(() => {
+          handleCreate();
+      })
     return (
         <>
             <h1>We Need Your Deets</h1>
-            <Form inline onSubmit={handleSubmit}>
+            <Form inline onChange={handleChange}>
             <FormGroup >
                 <Label for="exampleEmail" >Whats your name?</Label>
                 <Input type="name" name="name" id="exampleNAme" placeholder="First Name" />
             </FormGroup>
             {' '}
-            <FormGroup >
+            <FormGroup onChange={handleChange}>
                 <Label for="exampleUsername" >What should we call you?</Label>
                 <Input type="username" name="Username" id="exampleUsername" placeholder="Username" />
             </FormGroup>
