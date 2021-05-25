@@ -16,7 +16,7 @@ function App() {
   // Constants
   ///////////////////////////////
 
-  const [user, setUser] = useState("60abd8d25396770015385694")
+  const [user, setUser] = useState("")
   const [wallet, setWallet] = useState({
     name: "",
     password: "",
