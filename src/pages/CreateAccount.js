@@ -3,36 +3,37 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import {useState} from 'react'
 
 const CreateAccount = (props) => {
-    const [login, setLogin] = useState({})
-        const handleSubmit = (event) => {
-        event.preventDefault(); // Prevent Form from Refreshing
-        props.handleSubmit(formData); // Submit  desired function
-        props.history.push("/home"); //Push back to Home page
-          };
+    const [user, setUser] = useState({})
+
+    const handleSubmit = (event) => {
+            event.preventDefault(); // Prevent Form from Refreshing
+            props.handleSubmit(formData); // Submit  desired function
+            props.history.push("/home"); //Push back to Home page
+    };
     const handleChange = (event) => {
         console.log('handleChange - value', event.target.value)
-        console.log('handleChange - name', event.target.name)
+        console.log('handleChange - name', event.target.name)        
         const name = event.target.name 
-        setLogin({
-          ...login,
+        setUser({
+          ...user,
           [name]: event.target.value
         })
       }
     return (
         <>
             <h1>We Need Your Deets</h1>
-            <Form inline>
-            <FormGroup handleChange={handleChange}>
+            <Form inline onSubmit={handleSubmit}>
+            <FormGroup >
                 <Label for="exampleEmail" hidden>Whats your name?</Label>
                 <Input type="email" name="email" id="exampleEmail" placeholder="First Name" />
             </FormGroup>
             {' '}
-            <FormGroup handleChange={handleChange}>
+            <FormGroup >
                 <Label for="exampleUsername" hidden>What should we call you?</Label>
                 <Input type="username" name="Username" id="exampleUsername" placeholder="Username" />
             </FormGroup>
             {' '}
-            <FormGroup handleChange={handleChange}>
+            <FormGroup >
                 <Label for="examplePassword" hidden>Just make sure it isn't "password"</Label>
                 <Input type="password" name="password" id="examplePassword" placeholder="Password" />
             </FormGroup>
