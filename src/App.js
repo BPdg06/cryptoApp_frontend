@@ -46,12 +46,12 @@ function App() {
 
   return (
     <div className="App">
-      <button>
+      {/* <button>
         Login
       </button>
       <button>
         Sign up
-      </button>
+      </button> */}
       <Switch>
         <Route
           exact path="/"
