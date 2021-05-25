@@ -43,10 +43,16 @@ nav {
   position: absolute;
 }
 
+div.home-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 5px 0;
+}
+
 
 
 
 /* ~~~~~~~~~~~~~~~~~~~~ Styles ~~~~~~~~~~~~~~~~~~~~ */
 body {
-  background-color: #F0F3F6;
+  background-color: #F0F3F6 !important;
 }
