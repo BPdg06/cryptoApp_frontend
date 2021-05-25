@@ -98,6 +98,8 @@ function App() {
           <Home 
             wallet={wallet}
             coins={coins}
+            getDbData={getDbData}
+            getApiData={getApiData}
           />
         </Route>
         <Route
