@@ -16,7 +16,7 @@ function App() {
   // Constants
   ///////////////////////////////
 
-  const [user, setUser] = useState("")
+  const [user, setUser] = useState("60abd8d25396770015385694")
   const [wallet, setWallet] = useState({
     name: "",
     password: "",
@@ -41,8 +41,16 @@ function App() {
   ///////////////////////////////
 
   const getDbData = () => {
-    const REACT_APP_BACKENDURL = process.env
+    const url = process.env.REACT_APP_BACKENDURL
+    const getUrl = url + "/wallets/" + user
+    fetch(getUrl)
+    .then((response) => (response.json()))
+    .then((data) => {
+      console.log(data);
+    })
   }
+
+  getDbData()
 
   ///////////////////////////////
   // Render
