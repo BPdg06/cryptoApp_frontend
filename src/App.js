@@ -15,7 +15,7 @@ function App() {
   ///////////////////////////////
   // Constants
   ///////////////////////////////
-  const url = (`https://${process.env.REACT_APP_BACKENDURL}.herokuapp.com`)
+  const url = process.env.REACT_APP_BACKENDURL
   const [user, setUser] = useState("")
   const [wallet, setWallet] = useState({
     name: "",
@@ -39,8 +39,8 @@ function App() {
   ///////////////////////////////
   // Functions
   ///////////////////////////////
-  const getLogin = () => {
-    fetch(url + '/wallets/login/:username/:password')
+  const getLogin = (username, password) => {
+    fetch(url + '/wallets/login/ + username + '/' + password')
     .then((response) => response.json())
     .then((data) => {
       setUser(data);
@@ -103,7 +103,7 @@ const handleCreate = (newUser) => {
           path="/login"
         >
           <Login 
-            setUser={setUser}
+            setUser={getLogin}
           />
         </Route>
         <Route

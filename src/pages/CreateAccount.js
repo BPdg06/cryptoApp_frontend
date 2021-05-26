@@ -5,20 +5,12 @@ import {useState} from 'react'
 const CreateAccount = (props) => {
     const [user, setUser] = useState(props.setUser)
 
-    // const handleSubmit = (event) => {
-    //         event.preventDefault(); // Prevent Form from Refreshing
-    //         // props.getLogin(); // Submit  desired function
-    //         props.push("/wallet"); //Push back to Home page
-    // };
-    const handleChange = (event) => {
-        console.log('handleChange - value', event.target.value)
-        console.log('handleChange - name', event.target.name)        
-        const name = event.target.name 
-        setUser({
-          ...user,
-          [name]: event.target.value
-        })
-      }
+    const handleSubmit = (props) => {
+            props.preventDefault(); // Prevent Form from Refreshing
+                                    // Submit  desired function
+                                    //Push back to Home page
+    };
+    
       React.useEffect(() => {
           
       })
@@ -42,7 +34,7 @@ const CreateAccount = (props) => {
             </FormGroup>
             {' '}
             <Button
-            
+            onClick={handleSubmit}
             className="btn btn-med btn-danger btn-block"
             >Submit</Button>
             
