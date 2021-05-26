@@ -3,26 +3,21 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import {useState} from 'react'
 
 const CreateAccount = (props) => {
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState(props.setUser)
 
-    const handleSubmit = (event) => {
-            event.preventDefault(); // Prevent Form from Refreshing
-            props.handleSubmit(); // Submit  desired function
-            props.history.push("/home"); //Push back to Home page
+    const handleSubmit = (props) => {
+            props.preventDefault(); // Prevent Form from Refreshing
+                                    // Submit  desired function
+                                    //Push back to Home page
     };
-    const handleChange = (event) => {
-        console.log('handleChange - value', event.target.value)
-        console.log('handleChange - name', event.target.name)        
-        const name = event.target.name 
-        setUser({
-          ...user,
-          [name]: event.target.value
-        })
-      }
+    
+      React.useEffect(() => {
+          
+      })
     return (
         <>
             <h1>We Need Your Deets</h1>
-            <Form inline onSubmit={handleSubmit}>
+            <Form inline >
             <FormGroup >
                 <Label for="exampleEmail" >Whats your name?</Label>
                 <Input type="name" name="name" id="exampleNAme" placeholder="First Name" />

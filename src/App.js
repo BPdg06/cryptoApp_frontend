@@ -16,6 +16,7 @@ function App() {
   // Constants
   ///////////////////////////////
 
+  const url = process.env.REACT_APP_BACKENDURL
   const [user, setUser] = useState("60abd8d25396770015385694")
   const [wallet, setWallet] = useState({
     name: "",
@@ -39,7 +40,28 @@ function App() {
   ///////////////////////////////
   // Functions
   ///////////////////////////////
+  const getLogin = (username, password) => {
+    fetch(url + '/wallets/login/ + username + '/' + password')
+    .then((response) => response.json())
+    .then((data) => {
+      setUser(data);
+    })
+  }
 
+  //handle create for the form
+const handleCreate = (newUser) => {
+  fetch(url + "/wallets/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: {
+      name: String,
+      username: String,
+      password: String
+   }
+  }).then(() => getLogin());
+};
   const getDbData = () => {
     const url = process.env.REACT_APP_BACKENDURL
     const getUrl = url + "/wallets/" + user
@@ -82,7 +104,7 @@ function App() {
           path="/login"
         >
           <Login 
-            setUser={setUser}
+            setUser={getLogin}
           />
         </Route>
         <Route
