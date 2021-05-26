@@ -58,7 +58,7 @@ const handleCreate = (newUser) => {
     body: JSON.stringify(newUser)
      
    
-  }).then(() => getLogin());
+  }).then(() => setUser());
 };
   const getDbData = () => {
     const url = process.env.REACT_APP_BACKENDURL

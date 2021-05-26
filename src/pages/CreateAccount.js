@@ -35,7 +35,7 @@ const CreateAccount = (props) => {
             {' '}
             <FormGroup >
                 <Label for="exampleUsername" >What should we call you?</Label>
-                <Input onChange={handleChange} type="username" name="Username" id="exampleUsername" placeholder="Username" />
+                <Input onChange={handleChange} type="username" name="username" id="exampleUsername" placeholder="Username" />
             </FormGroup>
             {' '}
             <FormGroup >
