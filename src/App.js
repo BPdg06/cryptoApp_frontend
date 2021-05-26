@@ -15,7 +15,7 @@ function App() {
   ///////////////////////////////
   // Constants
   ///////////////////////////////
-
+  const url = (`https://${process.env.REACT_APP_BACKENDURL}.herokuapp.com`)
   const [user, setUser] = useState("")
   const [wallet, setWallet] = useState({
     name: "",
@@ -57,10 +57,7 @@ const handleCreate = (newUser) => {
     body: {
       name: String,
       username: String,
-      password: String,
-
-    
-    body: JSON.stringify(newUser),
+      password: String
    }
   }).then(() => getLogin());
 };

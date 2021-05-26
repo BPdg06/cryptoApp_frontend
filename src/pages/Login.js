@@ -16,21 +16,22 @@ import {useState} from 'react'
 
 const Login = (props) => {
 
-    const [login, setLogin] = useState({})
-    const handleSubmit = (event) => {
+    const [user, setUser] = useState(props.setUser)
+    const handleSubmit = (props) => {
+      props.getLogin()
     console.log('handleSubmit')
   }
     const handleChange = (event) => {
         console.log('handleChange - value', event.target.value)
         console.log('handleChange - name', event.target.name)
         const name = event.target.name 
-        setLogin({
-          ...login,
+        setUser({
+          ...user,
           [name]: event.target.value
         })
       }
       React.useEffect(() => {
-        getLogin();
+        
       }, []);
   
     

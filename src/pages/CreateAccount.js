@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import {useState} from 'react'
 
 const CreateAccount = (props) => {
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState(props.setUser)
 
     const handleSubmit = (event) => {
             event.preventDefault(); // Prevent Form from Refreshing
@@ -20,18 +20,18 @@ const CreateAccount = (props) => {
         })
       }
       React.useEffect(() => {
-          handleCreate();
+          
       })
     return (
         <>
             <h1>We Need Your Deets</h1>
-            <Form inline onChange={handleChange}>
+            <Form inline >
             <FormGroup >
                 <Label for="exampleEmail" >Whats your name?</Label>
                 <Input type="name" name="name" id="exampleNAme" placeholder="First Name" />
             </FormGroup>
             {' '}
-            <FormGroup onChange={handleChange}>
+            <FormGroup >
                 <Label for="exampleUsername" >What should we call you?</Label>
                 <Input type="username" name="Username" id="exampleUsername" placeholder="Username" />
             </FormGroup>
