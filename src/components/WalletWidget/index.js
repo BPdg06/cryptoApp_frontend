@@ -17,7 +17,7 @@ const WalletWidget = (props) => {
     const loaded = () => {
         const coinArray = props.wallet.coins.slice(0, 3)
         const coins = coinArray.map((item, index) => {
-            let coinData = props.coins
+            let coinData = [...props.coins]
             coinData.push({
                 id: "US Dollar",
                 symbol: "USD",
