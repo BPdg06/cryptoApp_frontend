@@ -27,7 +27,7 @@ const Wallet = (props) => {
 
     const loaded = () => {
         const coins = props.wallet.coins.map((item, index) => {
-            let coinData = props.coins
+            let coinData = props.coins.slice(0)
             coinData.push({
                 id: "US Dollar",
                 symbol: "USD",
