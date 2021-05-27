@@ -1,46 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ropa Sans', sans-serif;
+  scroll-behavior: smooth;
+}
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  background-image: url('https://cdn.pixabay.com/photo/2019/05/29/16/00/retro-4237850_1280.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 /* ~~~~~~~~~~~~~~~~~~~~ Mobile Layouts ~~~~~~~~~~~~~~~~~~~~ */
 nav {
+  position: fixed;
   bottom: 0;
-  position: absolute;
+  width: 100%;
 }
 
 div.home-header {
@@ -117,9 +103,27 @@ div.transactions-cont div.transaction-display h6, div.transactions-cont div.tran
 
 /* ~~~~~~~~~~~~~~~~~~~~ Styles ~~~~~~~~~~~~~~~~~~~~ */
 body {
-  background-color: #F0F3F6 !important;
+  background-color: rgba(255,255,255,0) !important;
 }
 
 .transaction-display {
   border: 1px solid;
+}
+
+.main-svg {
+  background: rgba(0,0,0,.1) !important;
+  
+}
+
+.bg {
+  fill: rgba(0,0,0,.5) !important;
+}
+.nsewdrag {
+  fill: rgba(0,0,0,.5) !important;
+}
+p{
+  color:coral;
+}
+h6 {
+  color: coral;
 }
