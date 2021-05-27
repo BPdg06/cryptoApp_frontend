@@ -9,7 +9,7 @@ const CreateAccount = (props) => {
     const handleSubmit = (event) => {
             event.preventDefault();     // Prevent Form from Refreshing
             props.handleCreate(user)    // Submit  desired function
-            props.history.push('/home') //Push back to Home page
+            // props.history.push('/home') //Push back to Home page
     };
 
     const handleChange = (event) => {
@@ -45,7 +45,7 @@ const CreateAccount = (props) => {
             </FormGroup>
             {' '}
             
-            <Button a href= '/home'
+            <Button
             onClick={handleSubmit}
             className="btn btn-med btn-danger btn-block"
             >Submit</Button>
