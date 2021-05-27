@@ -43,7 +43,7 @@ const Login = (props) => {
             <Button  onClick={handleSubmit}>Submit</Button>
             
             </Form>
-            <a href='/create'>forgot username/password</a>
+            <a href='/create'>Create Account</a>
         </>
       );
 }
