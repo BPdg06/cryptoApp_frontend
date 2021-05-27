@@ -12,21 +12,39 @@
   background-image: url('https://cdn.pixabay.com/photo/2019/05/29/16/00/retro-4237850_1280.jpg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%, 100%;
   background-attachment: fixed;
   width: 100%;
+  color:rgb(2, 255, 255)
+  
+}
+@media only screen and (min-width:501px) {
+  nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
 }
 
-@media (prefers-reduced-motion: no-preference) {
- 
+@media only screen and (max-width: 500px) {
+  
 }
 
 
 /* ~~~~~~~~~~~~~~~~~~~~ Mobile Layouts ~~~~~~~~~~~~~~~~~~~~ */
+
+.form-group {
+  color: rgb(2, 255, 255);
+}
+form.form-inline {
+  margin-left: 62px;
+}
 nav {
   position: fixed;
   bottom: 0;
   width: 100%;
+  display: block;
+  transition: top 0.3s;
 }
 
 div.home-header {
@@ -115,14 +133,23 @@ body {
   
 }
 
-.bg {
-  fill: rgba(0,0,0,.5) !important;
+.form-inline {
+  margin-left: 25px;
 }
 .nsewdrag {
   fill: rgba(0,0,0,.5) !important;
 }
 p{
   color:coral;
+}
+h2{
+  color: rgb(255, 196, 0);
+}
+h3 {
+  color: rgb(255,196,0);
+}
+h4 {
+  color: rgb(255, 0, 170);
 }
 h6 {
   color: coral;

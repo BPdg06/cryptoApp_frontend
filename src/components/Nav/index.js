@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 
 const Nav = (props) => {
     return (
-        <nav>
+        <nav className = 'navBar'>
             <ul>
                 <div className="nav-item-cont">
                     <Link
