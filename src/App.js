@@ -20,7 +20,7 @@ function App (props) {
   ///////////////////////////////
 
   const url = process.env.REACT_APP_BACKENDURL
-  const [user, setUser] = useState("")
+  const [user, setUser] = useState("60abd8d25396770015385694")
   const [wallet, setWallet] = useState({
     name: "",
     password: "",
