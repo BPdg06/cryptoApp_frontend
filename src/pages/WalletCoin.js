@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { useState, useEffect } from "react";
 import Plotly from "plotly.js/dist/plotly";
 
@@ -36,9 +36,8 @@ const WalletCoin = (props) => {
     useEffect(() => { 
         getCoindata().then((graphData) => {
         initialChart(graphData);
-        // setCoinPrice(parseFloat(graphData.price[graphData.price.length-1]).toFixed(2));
-          });
-      }, []);
+        });
+    }, []);
 
     const apiCall = async(url) => {
         let response = await fetch(url, {
@@ -54,8 +53,7 @@ const WalletCoin = (props) => {
       };
     
     
-    
-      const getCoindata = async() => {
+    const getCoindata = async() => {
             
         const response = await apiCall(`https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=usd&days=1&interval=1m`)
         
