@@ -56,8 +56,6 @@ const handleCreate = (newUser) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(newUser)
-     
-   
   }).then(() => getLogin());
 };
   const getDbData = () => {
@@ -154,6 +152,7 @@ const handleCreate = (newUser) => {
             coins={coins}
             wallet={wallet}
             user={user}
+            url={url}
           />
         </Route>
       </Switch>
