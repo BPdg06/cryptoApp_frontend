@@ -8,6 +8,7 @@ import Wallet from "./pages/Wallet"
 import Coins from "./pages/Coins"
 import Transactions from "./pages/Transactions"
 import Exchange from "./pages/Exchange"
+import Nav from "./components/Nav"
 
 function App() {
 
@@ -15,7 +16,8 @@ function App() {
   // Constants
   ///////////////////////////////
 
-  const [user, setUser] = useState("")
+  const url = process.env.REACT_APP_BACKENDURL
+  const [user, setUser] = useState("60abd8d25396770015385694")
   const [wallet, setWallet] = useState({
     name: "",
     password: "",
@@ -26,18 +28,55 @@ function App() {
     }],
     transactions: []
   })
-  const [transactions, setTransactions] = useState({
+  const [transactions, setTransactions] = useState([{
     userID: "",
     coinSold: "",
     soldAmount: 0,
     coinBought: "",
     boughtAmount: 0
-  })
+  }])
   const [coins, setCoins] = useState([])
 
   ///////////////////////////////
   // Functions
   ///////////////////////////////
+  const getLogin = (username, password) => {
+    fetch(url + '/wallets/login/' + username + '/' + password)
+    .then((response) => response.json())
+    .then((data) => {
+      setUser(data);
+    })
+  }
+
+  //handle create for the form
+const handleCreate = (newUser) => {
+  fetch(url + "/wallets/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newUser)
+  }).then(() => getLogin());
+};
+  const getDbData = () => {
+    const url = process.env.REACT_APP_BACKENDURL
+    const getUrl = url + "/wallets/" + user
+    fetch(getUrl)
+    .then((response) => (response.json()))
+    .then((data) => {
+      setWallet(data.data.wallet)
+      setTransactions(data.data.transactions)
+    })
+  }
+
+  const getApiData = () => {
+    const url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+    fetch(url)
+    .then((response) => (response.json()))
+    .then((data) => {
+      setCoins(data)
+    })
+  }
 
   ///////////////////////////////
   // Render
@@ -45,12 +84,12 @@ function App() {
 
   return (
     <div className="App">
-      <button>
+      {/* <button>
         Login
       </button>
       <button>
         Sign up
-      </button>
+      </button> */}
       <Switch>
         <Route
           exact path="/"
@@ -62,6 +101,7 @@ function App() {
         >
           <Login 
             setUser={setUser}
+            getLogin={getLogin}
           />
         </Route>
         <Route
@@ -69,6 +109,7 @@ function App() {
         >
           <CreateAccount 
             setUser={setUser}
+            handleCreate={handleCreate}
           />
         </Route>
         <Route
@@ -77,6 +118,8 @@ function App() {
           <Home 
             wallet={wallet}
             coins={coins}
+            getDbData={getDbData}
+            getApiData={getApiData}
           />
         </Route>
         <Route
@@ -85,6 +128,7 @@ function App() {
           <Wallet 
             wallet={wallet}
             coins={coins}
+            transactions={transactions}
           />
         </Route>
         <Route
@@ -108,9 +152,11 @@ function App() {
             coins={coins}
             wallet={wallet}
             user={user}
+            url={url}
           />
         </Route>
       </Switch>
+        <Nav />
     </div>
   );
 }
