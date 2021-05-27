@@ -9,8 +9,11 @@ import Coins from "./pages/Coins"
 import Transactions from "./pages/Transactions"
 import Exchange from "./pages/Exchange"
 import Nav from "./components/Nav"
+import {withRouter} from 'react-router-dom'
 
-function App() {
+
+
+function App(props) {
 
   ///////////////////////////////
   // Constants
@@ -56,7 +59,20 @@ const handleCreate = (newUser) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(newUser)
-  }).then(() => getLogin());
+  }).then((response) => response.json())
+  .then((data) =>  {
+    console.log(data.status)
+    if(data.status === 200)
+    {
+    setUser(data.data._id)
+    props.history.push('/home')
+  
+  } else {
+    alert('username already exists')
+    props.history.push('/login')
+  }
+
+  })
 };
   const getDbData = () => {
     const url = process.env.REACT_APP_BACKENDURL
@@ -161,4 +177,4 @@ const handleCreate = (newUser) => {
   );
 }
 
-export default App;
+export default withRouter(App);
