@@ -9,7 +9,7 @@ const CreateAccount = (props) => {
     const handleSubmit = (event) => {
             event.preventDefault();     // Prevent Form from Refreshing
             props.handleCreate(user)    // Submit  desired function
-            // props.history.push('/home') //Push back to Home page
+            
     };
 
     const handleChange = (event) => {
