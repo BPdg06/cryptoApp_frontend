@@ -49,7 +49,7 @@ const Login = (props) => {
                 <Input onChange={handleChange} type="password" name="password" id="examplePassword" placeholder="Password" />
             </FormGroup>
             {' '}
-            <Button onClick={handleSubmit}>Submit</Button>
+            <Button href= '/home' onClick={handleSubmit}>Submit</Button>
             
             </Form>
             <a href='/create'>forgot username/password</a>
