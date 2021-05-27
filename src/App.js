@@ -41,7 +41,7 @@ function App() {
   // Functions
   ///////////////////////////////
   const getLogin = (username, password) => {
-    fetch(url + '/wallets/login/ + username + '/' + password')
+    fetch(url + '/wallets/login/' + username + '/' + password)
     .then((response) => response.json())
     .then((data) => {
       setUser(data);
@@ -55,11 +55,7 @@ const handleCreate = (newUser) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: {
-      name: String,
-      username: String,
-      password: String
-   }
+    body: JSON.stringify(newUser)
   }).then(() => getLogin());
 };
   const getDbData = () => {
@@ -104,7 +100,8 @@ const handleCreate = (newUser) => {
           path="/login"
         >
           <Login 
-            setUser={getLogin}
+            setUser={setUser}
+            getLogin={getLogin}
           />
         </Route>
         <Route
@@ -112,6 +109,7 @@ const handleCreate = (newUser) => {
         >
           <CreateAccount 
             setUser={setUser}
+            handleCreate={handleCreate}
           />
         </Route>
         <Route
