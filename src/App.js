@@ -152,6 +152,7 @@ const handleCreate = (newUser) => {
             coins={coins}
             wallet={wallet}
             user={user}
+            url={url}
           />
         </Route>
       </Switch>

@@ -1,4 +1,5 @@
-import React, {useState, useRef} from "react"
+import React, {useState} from "react"
+import {withRouter} from "react-router-dom"
 
 const Exchange = (props) => {
     
@@ -96,6 +97,32 @@ const Exchange = (props) => {
         })
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        fetch(props.url + '/transactions/', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                transaction: {
+                    userID: props.user,
+                    coinSold: formData.sellCoinName,
+                    soldAmount: formData.sellAmount,
+                    coinBought: formData.boughtCoin,
+                    boughtAmount: formData.boughtAmount
+                },
+                wallet: props.wallet
+            })
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.status === 200) {
+                props.history.push('/home')
+            }
+        })
+    }
+
     /////////////////////
     // Render
     /////////////////////
@@ -104,7 +131,9 @@ const Exchange = (props) => {
         <>
             <h2>Exchange</h2>
             <div className="form-cont">
-                <form>
+                <form
+                    onSubmit={handleSubmit}
+                >
                     <div className="sell-cont">
                         <h6>Sell:</h6>
                         <p>Choose Wallet:</p>
@@ -123,7 +152,7 @@ const Exchange = (props) => {
                             value={formData.sellAmount}
                             onChange={handleSellChange}
                         ></input>
-                        <p>{}</p>
+                        <p>= ${formData.sellAmount * formData.sellPrice}</p>
                     </div>
                     <div className="buy-cont">
                         <h6>Buy:</h6>
@@ -137,7 +166,7 @@ const Exchange = (props) => {
                         <p>You Get:</p>
                         <input
                             value={formData.boughtAmount}
-                            readonly
+                            readOnly
                         ></input>
                     </div>
                     <input type="submit"></input>
@@ -147,4 +176,4 @@ const Exchange = (props) => {
     )
 }
 
-export default Exchange
+export default withRouter(Exchange)
