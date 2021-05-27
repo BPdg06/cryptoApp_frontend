@@ -9,7 +9,7 @@ import Coins from "./pages/Coins"
 import Transactions from "./pages/Transactions"
 import Exchange from "./pages/Exchange"
 import Nav from "./components/Nav"
-import {withRouter} from 'react-router-dom'
+import {withRouter, Redirect} from 'react-router-dom'
 
 
 
@@ -79,7 +79,7 @@ const handleCreate = (newUser) => {
     setUser(data.data._id)
     props.history.push('/home')
   
-  } else {
+  } else if (data.status === 403) {
     alert('username already exists')
     props.history.push('/login')
   }
@@ -112,17 +112,11 @@ const handleCreate = (newUser) => {
 
   return (
     <div className="App">
-      {/* <button>
-        Login
-      </button>
-      <button>
-        Sign up
-      </button> */}
       <Switch>
         <Route
           exact path="/"
         >
-          <h2> This is the app page</h2>
+          <Redirect to="/login" />
         </Route>
         <Route
           path="/login"
