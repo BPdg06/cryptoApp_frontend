@@ -50,7 +50,7 @@ const Login = (props) => {
             <Form inline>
             <FormGroup>
                 <Label for="exampleEmail" hidden>email</Label>
-                <Input type="email" name="email" id="exampleEmail" placeholder="Email" />
+                <Input type="email" name="email" id="exampleEmail" placeholder="Username" />
             </FormGroup>
             {' '}
             <FormGroup>
