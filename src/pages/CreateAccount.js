@@ -3,7 +3,13 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import {useState} from 'react'
 
 const CreateAccount = (props) => {
-    const [user, setUser] = useState({name:'', user:'',password:''})
+    const [user, setUser] = useState({name: "", username: "", password: ""})
+
+    const handleSubmit = (event) => {
+            event.preventDefault(); // Prevent Form from Refreshing
+            props.handleCreate(user)                      // Submit  desired function
+                                    //Push back to Home page
+    };
 
     const handleChange = (event) => {
         console.log('handleChange - value', event.target.value)
@@ -14,12 +20,6 @@ const CreateAccount = (props) => {
           [name]: event.target.value
         })
       }
-
-    const handleSubmit = (event) => {
-        event.preventDefault(); // Prevent Form from Refreshing
-        props.handleCreate(user)    // Submit  desired function
-                                    //Push back to Home page
-    };
     
       React.useEffect(() => {
           

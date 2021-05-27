@@ -59,9 +59,39 @@ div.home-header {
   margin: 0;
 }
 
+div.form-cont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+div.sell-cont , div.buy-cont {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid;
+  margin: 10px 0;
+  align-items: flex-start;
+}
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0 0;
+  width: 90%;
+}
 
+form input, form select {
+  height: 40px;
+  margin: 0 0 20px;
+  width: 100%;
+}
+
+div.form-cont p, div.form-cont h6 {
+  margin: 0;
+}
 
 /* ~~~~~~~~~~~~~~~~~~~~ Styles ~~~~~~~~~~~~~~~~~~~~ */
 body {

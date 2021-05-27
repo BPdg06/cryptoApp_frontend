@@ -56,9 +56,7 @@ const handleCreate = (newUser) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(newUser)
-     
-   
-  }).then(() => setUser());
+  }).then(() => getLogin());
 };
   const getDbData = () => {
     const url = process.env.REACT_APP_BACKENDURL
@@ -154,6 +152,7 @@ const handleCreate = (newUser) => {
             coins={coins}
             wallet={wallet}
             user={user}
+            url={url}
           />
         </Route>
       </Switch>
