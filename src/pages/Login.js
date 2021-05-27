@@ -28,7 +28,7 @@ const Login = (props) => {
     
     
     return (
-        <>
+        <div>
             <Form inline>
             <FormGroup >
                 <Label for="exampleUsername" hidden>Username</Label>
@@ -40,11 +40,11 @@ const Login = (props) => {
                 <Input onChange={handleChange} type="password" name="password" id="examplePassword" placeholder="Password" />
             </FormGroup>
             {' '}
-            <Button  onClick={handleSubmit}>Submit</Button>
+            <Button className="btn btn-med btn-danger btn-block" onClick={handleSubmit}>Submit</Button>
             
             </Form>
             <a href='/create'>Create Account</a>
-        </>
+        </div>
       );
 }
 export default Login

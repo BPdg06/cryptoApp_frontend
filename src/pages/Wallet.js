@@ -90,7 +90,7 @@ const Wallet = (props) => {
                         <Link
                             to="/exchange"
                         >
-                            <Button>Add Wallet</Button>
+                            <Button className="btn btn-med btn-danger btn-block">Add Wallet</Button>
                         </Link>
                     </Route>
 
