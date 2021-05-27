@@ -1,14 +1,15 @@
 import React from 'react'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import {useState} from 'react'
+import {withRouter} from 'react-router-dom'
 
 const CreateAccount = (props) => {
     const [user, setUser] = useState({name: "", username: "", password: ""})
 
     const handleSubmit = (event) => {
-            event.preventDefault(); // Prevent Form from Refreshing
-            props.handleCreate(user)                      // Submit  desired function
-                                    //Push back to Home page
+            event.preventDefault();     // Prevent Form from Refreshing
+            props.handleCreate(user)    // Submit  desired function
+            props.history.push('/home') //Push back to Home page
     };
 
     const handleChange = (event) => {
@@ -43,7 +44,8 @@ const CreateAccount = (props) => {
                 <Input onChange={handleChange} type="password" name="password" id="examplePassword" placeholder="Password" />
             </FormGroup>
             {' '}
-            <Button
+            
+            <Button a href= '/home'
             onClick={handleSubmit}
             className="btn btn-med btn-danger btn-block"
             >Submit</Button>
@@ -54,4 +56,4 @@ const CreateAccount = (props) => {
     )
 }
 
-export default CreateAccount
+export default withRouter(CreateAccount)

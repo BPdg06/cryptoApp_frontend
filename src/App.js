@@ -50,7 +50,7 @@ function App() {
 
   //handle create for the form
 const handleCreate = (newUser) => {
-  fetch(url + "/wallets/", {
+  fetch(url + "/wallets", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
