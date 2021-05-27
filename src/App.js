@@ -20,7 +20,7 @@ function App (props) {
   ///////////////////////////////
 
   const url = process.env.REACT_APP_BACKENDURL
-  const [user, setUser] = useState("60abd8d25396770015385694")
+  const [user, setUser] = useState("")
   const [wallet, setWallet] = useState({
     name: "",
     password: "",
@@ -48,6 +48,18 @@ function App (props) {
     .then((response) => response.json())
     .then((data) => {
       setUser(data);
+      if (data.status === 200)
+      {
+        setUser(data.data.wallet._id)
+        props.history.push('/home')
+      } else if (data.status === 409) {
+        alert('username does not exist')
+        props.history.push('/create')
+      } else if (data.status === 403) {
+        alert('username or password is WRONG!')
+      }
+      
+
     })
   }
 

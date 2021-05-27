@@ -5,10 +5,12 @@ import {useState} from 'react'
 
 const Login = (props) => {
 
-    const [user, setUser] =  useState({email: "", password: ""}) 
+    const [user, setUser] =  useState({username: "", password: ""}) 
     const handleSubmit = () => {
-      props.getLogin(user.email, user.password)
+      props.getLogin(user.username, user.password)
+      
     console.log('handleSubmit')
+
   }
     const handleChange = (event) => {
         console.log('handleChange - value', event.target.value)
@@ -38,7 +40,7 @@ const Login = (props) => {
                 <Input onChange={handleChange} type="password" name="password" id="examplePassword" placeholder="Password" />
             </FormGroup>
             {' '}
-            <Button href= '/home' onClick={handleSubmit}>Submit</Button>
+            <Button  onClick={handleSubmit}>Submit</Button>
             
             </Form>
             <a href='/create'>forgot username/password</a>
