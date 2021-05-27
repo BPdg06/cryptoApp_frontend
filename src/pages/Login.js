@@ -58,7 +58,7 @@ const Login = (props) => {
                 <Input type="password" name="password" id="examplePassword" placeholder="Password" />
             </FormGroup>
             {' '}
-            <Button onClick={handleSubmit}>Submit</Button>
+            <Button href= '/home' onClick={handleSubmit}>Submit</Button>
             
             </Form>
             <a href=''>forgot username/password</a>
