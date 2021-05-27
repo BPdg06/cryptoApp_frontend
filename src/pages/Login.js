@@ -3,17 +3,6 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import {useState} from 'react'
 
 
-
-
-
-
-
-
-
-
-
-
-
 const Login = (props) => {
 
     const [user, setUser] =  useState({email: "", password: ""}) 
@@ -40,10 +29,8 @@ const Login = (props) => {
         <>
             <Form inline>
             <FormGroup >
-                <Label for="exampleEmail" hidden>email</Label>
-
-                <Input type="email" name="email" id="exampleEmail" placeholder="Username" />
-
+                <Label for="exampleUsername" hidden>Username</Label>
+                <Input onChange={handleChange} type="username" name="username" id="exampleUsername" placeholder="Username" />
             </FormGroup>
             {' '}
             <FormGroup >
