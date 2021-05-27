@@ -93,7 +93,7 @@ const Exchange = (props) => {
         setFormData({
             ...formData,
             boughtCoin: buySymbol,
-            boughtAmount: parseFloat((formData.sellAmount*formData.sellPrice)/buyPrice)
+            boughtAmount: parseFloat((formData.sellAmount*formData.sellPrice)/buyPrice),
         })
     }
 
@@ -168,6 +168,7 @@ const Exchange = (props) => {
                             value={formData.boughtAmount}
                             readOnly
                         ></input>
+                        <p>= ${formData.boughtAmount ? (formData.sellAmount*formData.sellPrice) : 0}</p>
                     </div>
                     <input type="submit"></input>
                 </form>
