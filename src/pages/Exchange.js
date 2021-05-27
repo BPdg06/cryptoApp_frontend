@@ -123,6 +123,7 @@ const Exchange = (props) => {
                             value={formData.sellAmount}
                             onChange={handleSellChange}
                         ></input>
+                        <p>{}</p>
                     </div>
                     <div className="buy-cont">
                         <h6>Buy:</h6>
