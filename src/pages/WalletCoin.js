@@ -1,4 +1,6 @@
 import React from "react"
+import { useState, useEffect } from "react";
+import Plotly from "plotly.js/dist/plotly";
 
 const WalletCoin = (props) => {
 
@@ -31,105 +33,50 @@ const WalletCoin = (props) => {
     // Functions
     ///////////////////////
 
-    const transactionDisplay = transactions.map((item, index) => {
-        return (
-            <>
-                <div className="transaction-display">
-                    <h6>Bought: {item.boughtAmount} {item.coinBought}</h6>
-                    <h6>Sold: {item.soldAmount} {item.coinSold}</h6>
-                </div>
-            </>
-        )
-    })
+    useEffect(() => { 
+        getCoindata().then((graphData) => {
+        initialChart(graphData);
+        // setCoinPrice(parseFloat(graphData.price[graphData.price.length-1]).toFixed(2));
+          });
+      }, []);
 
-    ///////////////////////
-    // Render
-    ///////////////////////
-
-    return (
-        <>
-            <h3>{coin.name}</h3>
-            <div className="wallet-coin-price-cont coin-data">
-                <p>{coin.name} owned:</p>
-                <h6>{wallet.amount} {coin.symbol.toUpperCase()}</h6>
-            </div>
-            <div className="wallet-coin-amount-cont coin-data">
-                <p>Amount in USD:</p>
-                <h6>= ${wallet.amount * coin.current_price}</h6>
-            </div>
-            <div className="wallet-coin-amount-cont coin-data">
-                <p>Price of {coin.name}:</p>
-                <h6>Hide</h6>
-            </div>
-            <img src="https://placeimg.com/300/300/any"/>
-            <h4>Transactions</h4>
-            {transactionDisplay}
-        </>
-    )
-}
-
-export default WalletCoin
-
-
-import './App.css';
-import Search from './Search';
-import {Route, Switch} from "react-router-dom";
-import { useState, useEffect } from "react";
-import Plotly from "plotly.js/dist/plotly"
-
-function App() {
-
-  const [coinPrice, setCoinPrice] = useState(0);
-
-  const [coinlist, setCoinlist] = useState([]);
-
-  const [searchCoinname, setSearchcoinname] = useState("bitcoin");
-
-  useEffect(() => { 
-    getCoindata().then((graphData) => {
-    initialChart(graphData);
-    setCoinPrice(parseFloat(graphData.price[graphData.price.length-1]).toFixed(2));
-      });
-  }, []);
-
-
-  const apiCall = async(url) => {
-    let response = await fetch(url, {
-      content: {
-        success: "appication/json"
-      },
-    });
-      if (!response.ok) {
-        let msg = "Can't display the chart";
-        console.log(msg);
-      }
-      return response.json();
-  };
-
-
-
-  const getCoindata = async() => {
+    const apiCall = async(url) => {
+        let response = await fetch(url, {
+          content: {
+            success: "appication/json"
+          },
+        });
+          if (!response.ok) {
+            let msg = "Can't display the chart";
+            console.log(msg);
+          }
+          return response.json();
+      };
+    
+    
+    
+      const getCoindata = async() => {
+            
+        const response = await apiCall(`https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=usd&days=1&interval=1m`)
         
-    const response = await apiCall(`https://api.coingecko.com/api/v3/coins/${searchCoinname}/market_chart?vs_currency=usd&days=1&interval=1m`)
+        const data = {index: [], price: [], volume: []};
+        for (const item of response.prices) {
+          data.index.push(item[0]);
+          data.price.push(item[1]);
+        }
+        for (const item of response.total_volumes) {
+          data.volume.push(item[1]);
+        }
     
-    const data = {index: [], price: [], volume: []};
-    for (const item of response.prices) {
-      data.index.push(item[0]);
-      data.price.push(item[1]);
-    }
-    for (const item of response.total_volumes) {
-      data.volume.push(item[1]);
-    }
-
-    return data;
+        return data;
+        
+      };
     
-  };
-
-  
-  useEffect(() => {getCoindata()}, [])
+      
+      useEffect(() => {getCoindata()}, [])
 
 
-  const initialChart = (data) => {
+    const initialChart = (data) => {
 		const priceChart = {
 			name: "Price($)",
 			x: data.index.map((time) => new Date(time)),
@@ -183,19 +130,44 @@ function App() {
 	};
 
 
+    const transactionDisplay = transactions.map((item, index) => {
+        return (
+            <>
+                <div className="transaction-display">
+                    <h6>Bought: {item.boughtAmount} {item.coinBought}</h6>
+                    <h6>Sold: {item.soldAmount} {item.coinSold}</h6>
+                </div>
+            </>
+        )
+    })
 
-  
-  return (
-    
-    <div className="App">
-      <Search getSearch={(searchCoinname) => setSearchcoinname(searchCoinname)} />
-      <h1>${coinPrice}</h1>
-      <div id="cryptoChart"></div>
-    
-    </div>
-  );
+    ///////////////////////
+    // Render
+    ///////////////////////
+
+    return (
+        <>
+            <h3>{coin.name}</h3>
+            <div className="wallet-coin-price-cont coin-data">
+                <p>{coin.name} owned:</p>
+                <h6>{wallet.amount} {coin.symbol.toUpperCase()}</h6>
+            </div>
+            <div className="wallet-coin-amount-cont coin-data">
+                <p>Amount in USD:</p>
+                <h6>= ${wallet.amount * coin.current_price}</h6>
+            </div>
+            <div className="wallet-coin-amount-cont coin-data">
+                <p>Price of {coin.name}:</p>
+                <h6>Hide</h6>
+            </div>
+            <div id="cryptoChart"></div>
+            <h4>Transactions</h4>
+            {transactionDisplay}
+        </>
+    )
 }
 
+export default WalletCoin
 
 
-export default App;
+  
