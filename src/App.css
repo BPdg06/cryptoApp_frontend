@@ -63,12 +63,13 @@ div.home-header {
 
 .coin-data {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
 .coin-data p, .coin-data h6 {
-  margin: 0;
+  margin: 0 40px;
+  color: rgb(2, 255, 255);
 }
 
 div.form-cont {
@@ -123,8 +124,18 @@ div.transactions-cont div.transaction-display {
   align-items: center;
 }
 
+div.transaction-display {
+  background: rgba(0,0,0,0.6);
+  margin: 0 0 10px;
+}
+
+div.transaction-display h6 {
+  color: rgb(2, 255, 255);
+}
+
 div.transactions-cont div.transaction-display h6, div.transactions-cont div.transaction-display p {
   margin: 10px;
+  
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~ Styles ~~~~~~~~~~~~~~~~~~~~ */

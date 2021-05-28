@@ -180,7 +180,7 @@ const WalletCoin = (props) => {
             </div>
             <div className="wallet-coin-amount-cont coin-data">
                 <p>Price of {coin.name}:</p>
-                <h6>Hide</h6>
+                <h6>${coin.current_price}</h6>
             </div>
             <div id="cryptoChart"></div>
             <h4>Transactions</h4>
