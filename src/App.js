@@ -178,7 +178,10 @@ const handleCreate = (newUser) => {
           />
         </Route>
       </Switch>
-        <Nav />
+        <div className={props.location.pathname === "/login" || props.location.pathname === "/create" ? "hidden" : ""}>
+          <Nav 
+          />
+        </div>
     </div>
   );
 }
