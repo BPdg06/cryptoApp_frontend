@@ -96,27 +96,38 @@ const WalletCoin = (props) => {
             },
         };
 		let layout = {
-            title: "Live Chart",
-			height: "100%",
+            title: {
+                text: 'Live Chart',
+                font: {
+                    family: 'monospace',
+                    size: 36,
+                    color: 'rgb(51, 51, 255)',
+                }
+            },
+            height: "100%",
             autosize: true,
+            
 			xaxis: {
                 title: 'Time',
                 titlefont: {
                     family: 'Arial',
                     font: 'bold',
                     size: 24,
-                    color: 'rgb(255, 196, 0)'
+                    color: 'rgb(255, 255, 0)'
                 },
+                // autotick: true,
                 tickfont: { 
-                    color: '#ff7f50',
+                    color: 'rgb(255, 255, 255)',
                     family: 'Arial',
                     size: 20
                 },
                 tickangle: 'auto',
                 ticks: 'outside',
-                tickwidth: 4,
-                tickcolor: '#ff7f50',
+                tickwidth: 5,
+                ticklen: 8,
+                tickcolor: 'rgb(0, 255, 255)',
                 showticklabels: true,
+                automargin: true,
 				anchor: "y2",
 			},
 			yaxis: {
@@ -125,26 +136,31 @@ const WalletCoin = (props) => {
                     family: 'Arial',
                     font: 'bold',
                     size: 24,
-                    color: 'rgb(255, 196, 0)'
+                    color: 'rgb(255, 255, 0)'
                 },
+                // autotick: true,
                 tickfont: { 
-                    color: '#ff7f50',
+                    color: 'rgb(255, 255, 255)',
                     family: 'Arial',
                     size: 20
                 },
                 tickangle: 'auto',
                 ticks: 'outside',
-                tickwidth: 4,
-                tickcolor: '#ff7f50',
+                tickwidth: 5,
+                ticklen: 8,
+                tickcolor: 'rgb(0, 255, 255)',
                 showticklabels: true,
+                
 				domain: [0.2, 1],
-				anchor: "x",
+                anchor: "x",
+                automargin: true,
 			},
 			yaxis2: {
 				showticklabels: false,
 				domain: [0, 0.2],
 				anchor: "x",
-			},
+            },
+            // paper_bgcolor: 'rgba(0, 0, 0, 0.5)',
 		};
     var allChart = [priceChart, volumeChart];
     var config = {responsive: true}
