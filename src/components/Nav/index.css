@@ -1,6 +1,6 @@
 nav {
     width: 100%;
-    box-shadow: 0 -1px 0 20px #F0F3F6;
+    
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-color:rgba(0,0,0,)
@@ -11,7 +11,7 @@ ul {
     justify-content: space-between;
     padding: 0 !important;
     width: 100%;
-    margin: 10px 0 20px !important;
+    
 }
 
 ul a {
