@@ -170,7 +170,7 @@ const Exchange = (props) => {
                         ></input>
                         <p>= ${formData.boughtAmount ? (formData.sellAmount*formData.sellPrice) : 0}</p>
                     </div>
-                    <input type="submit"></input>
+                    <input  type="submit"></input>
                 </form>
             </div>
         </>
