@@ -32,34 +32,28 @@ const WalletCoin = (props) => {
     ///////////////////////
     // Functions
     ///////////////////////
-
+    
     useEffect(() => { 
-        getCoindata().then((graphData) => {
-        initialChart(graphData);
+        getCoindata()
+        .then((graphData) => {
+            totalChart(graphData);
         });
     }, []);
 
     const apiCall = async(url) => {
-        let response = await fetch(url, {
-          content: {
-            success: "appication/json"
-          },
-        });
-          if (!response.ok) {
-            let msg = "Can't display the chart";
-            console.log(msg);
-          }
-          return response.json();
-      };
+        let response = await fetch(url);
+        let data = await response.json();
+        return data;
+    };
     
     
     const getCoindata = async() => {
             
         const response = await apiCall(`https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=usd&days=1&interval=1m`)
         
-        const data = {index: [], price: [], volume: []};
+        const data = {price:[], volume:[], time:[]};
         for (const item of response.prices) {
-          data.index.push(item[0]);
+          data.time.push(item[0]);
           data.price.push(item[1]);
         }
         for (const item of response.total_volumes) {
@@ -67,64 +61,94 @@ const WalletCoin = (props) => {
         }
     
         return data;
-        
-      };
+    };
     
       
-      useEffect(() => {getCoindata()}, [])
+    useEffect(() => {getCoindata()}, [])
 
 
-    const initialChart = (data) => {
+    const totalChart = (data) => {
 		const priceChart = {
 			name: "Price($)",
-			x: data.index.map((time) => new Date(time)),
-      y: data.price,
-      type: "scatter",
+            x: data.time.map((time)=> new Date(time)),
+            y: data.price,
+            type: "scatter",
+            mode: "lines",
 			xaxis: "x",
-			yaxis: "y1",
-			mode: "lines+markers",
-			marker: { 
-        color: "rgb(12, 253, 1)", 
-        size: 5 
-      },
-      line: {
-        color: "rgb(12, 253, 1)",
-        width: 2
-      }
-    };
+            yaxis: "y1",
+            line: {
+            color: "rgb(12, 253, 1)",
+            width: 3
+            },
+        };
     
 		const volumeChart = {
 			name: "Vol($Billion)",
-			x: data.index.map((time) => new Date(time)),
-      y: data.volume,
-      type: "scatter",
-      xaxis: "x",
-      yaxis: "y2",
-			marker: {
-				color: "rgb(17, 91, 233)"
-      },
-    };
+			x: data.time.map((time) => new Date(time)),
+            y: data.volume,
+            type: "scatter",
+            mode: "lines",
+            xaxis: "x",
+            yaxis: "y2",
+            line: {
+                width: 3,
+                color: "rgb(252, 15, 192)"
+            },
+        };
 		let layout = {
-      title: "Live Chart",
+            title: "Live Chart",
 			height: "100%",
-      autosize: true,
+            autosize: true,
 			xaxis: {
-				domain: [1, 1],
+                title: 'Time',
+                titlefont: {
+                    family: 'Arial',
+                    font: 'bold',
+                    size: 24,
+                    color: 'rgb(255, 196, 0)'
+                },
+                tickfont: { 
+                    color: '#ff7f50',
+                    family: 'Arial',
+                    size: 20
+                },
+                tickangle: 'auto',
+                ticks: 'outside',
+                tickwidth: 4,
+                tickcolor: '#ff7f50',
+                showticklabels: true,
 				anchor: "y2",
 			},
 			yaxis: {
-				domain: [0.1, 1],
+                title: 'Price',
+                titlefont: {
+                    family: 'Arial',
+                    font: 'bold',
+                    size: 24,
+                    color: 'rgb(255, 196, 0)'
+                },
+                tickfont: { 
+                    color: '#ff7f50',
+                    family: 'Arial',
+                    size: 20
+                },
+                tickangle: 'auto',
+                ticks: 'outside',
+                tickwidth: 4,
+                tickcolor: '#ff7f50',
+                showticklabels: true,
+				domain: [0.2, 1],
 				anchor: "x",
 			},
 			yaxis2: {
 				showticklabels: false,
-				domain: [0, 0.1],
+				domain: [0, 0.2],
 				anchor: "x",
 			},
 		};
     var allChart = [priceChart, volumeChart];
     var config = {responsive: true}
-		Plotly.react("cryptoChart", allChart, layout, config);
+	Plotly.react("cryptoChart", allChart, layout, config);
 	};
 
 
