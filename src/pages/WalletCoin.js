@@ -128,8 +128,8 @@ const WalletCoin = (props) => {
                 tickcolor: 'rgb(0, 255, 255)',
                 showticklabels: true,
                 automargin: true,
-				anchor: "y2",
-			},
+				        anchor: "y2",
+			          },
 			yaxis: {
                 title: 'Price',
                 titlefont: {
@@ -151,10 +151,10 @@ const WalletCoin = (props) => {
                 tickcolor: 'rgb(0, 255, 255)',
                 showticklabels: true,
                 
-				domain: [0.2, 1],
+				        domain: [0.2, 1],
                 anchor: "x",
                 automargin: true,
-			},
+			          },
 			yaxis2: {
 				showticklabels: false,
 				domain: [0, 0.2],
@@ -162,6 +162,7 @@ const WalletCoin = (props) => {
             },
             paper_bgcolor: 'rgba(0, 0, 0, 0.3)',
             plot_bgcolor: 'rgb(64, 64, 64)'
+
 		};
     var allChart = [priceChart, volumeChart];
     var config = {responsive: true}
