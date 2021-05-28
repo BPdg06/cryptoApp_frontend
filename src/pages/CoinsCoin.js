@@ -82,7 +82,8 @@ const CoinsCoin = (props) => {
             title: {
                 text: 'Live Chart',
                 font: {
-                    family: 'monospace',
+
+                    family: 'Arial',
                     size: 36,
                     color: 'rgb(51, 51, 255)',
                 }
@@ -96,14 +97,15 @@ const CoinsCoin = (props) => {
                     family: 'Arial',
                     font: 'bold',
                     size: 24,
-                    color: 'rgb(255, 255, 0)'
+                    color: 'rgb(102, 0, 204)'
                 },
                 // autotick: true,
                 tickfont: { 
-                    color: 'rgb(255, 255, 255)',
+                    color: 'rgb(0, 0, 0)',
                     family: 'Arial',
                     size: 20
                 },
+                       
                 tickangle: 'auto',
                 ticks: 'outside',
                 tickwidth: 5,
@@ -111,19 +113,19 @@ const CoinsCoin = (props) => {
                 tickcolor: 'rgb(0, 255, 255)',
                 showticklabels: true,
                 automargin: true,
-				anchor: "y2",
-			},
+				        anchor: "y2",
+			          },
 			yaxis: {
                 title: 'Price',
                 titlefont: {
                     family: 'Arial',
                     font: 'bold',
                     size: 24,
-                    color: 'rgb(255, 255, 0)'
+                    color: 'rgb(102, 0, 204)'
                 },
                 // autotick: true,
                 tickfont: { 
-                    color: 'rgb(255, 255, 255)',
+                    color: 'rgb(0, 0, 0)',
                     family: 'Arial',
                     size: 20
                 },
@@ -143,8 +145,9 @@ const CoinsCoin = (props) => {
 				domain: [0, 0.2],
 				anchor: "x",
             },
-            // paper_bgcolor: 'rgba(0, 0, 0, 0.5)',
-		};
+            paper_bgcolor: 'rgba(0, 0, 0, 0.3)',
+            plot_bgcolor: 'rgb(64, 64, 64)'
+      };
     var allChart = [priceChart, volumeChart];
     var config = {responsive: true}
 	Plotly.react("cryptoChart", allChart, layout, config);
