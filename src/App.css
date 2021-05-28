@@ -1,38 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ropa Sans', sans-serif;
+  scroll-behavior: smooth;
+}
 .App {
   text-align: center;
+  background-image: url('https://cdn.pixabay.com/photo/2019/05/29/16/00/retro-4237850_1280.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+  color:rgb(2, 255, 255)
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media only screen and (max-width:500px) {
+  nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height:90px;
+    
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media only screen and (max-width: 500px) {
+  
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~ Mobile Layouts ~~~~~~~~~~~~~~~~~~~~ */
+#form {
+  height: 650px;
+  padding-top: 100px;
+}
+.form-group {
+  color: rgb(2, 255, 255);
+}
+form.form-inline {
+  margin-left: 62px;
+  margin-top: 0;
+}
+nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: block;
+  transition: top 0.3s;
+}
+
+div.home-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 5px 0;
+}
+
+.coin-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coin-data p, .coin-data h6 {
+  margin: 0 40px;
+  color: rgb(2, 255, 255);
+}
+
+div.form-cont {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+div.sell-cont , div.buy-cont {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid;
+  margin: 10px 0;
+  align-items: flex-start;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0 0;
+  width: 90%;
+}
+
+form input, form select {
+  height: 40px;
+  margin: 0 0 20px;
+  width: 100%;
+}
+
+div.form-cont p, div.form-cont h6 {
+  margin: 0;
+}
+
+div.transactions-cont {
+  width: 90%;
+  margin: 0 auto;
+}
+
+div.transaction-date-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+div.transactions-cont div.transaction-display {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.transaction-display {
+  background: rgba(0,0,0,0.6);
+  margin: 0 0 10px;
+}
+
+div.transaction-display h6 {
+  color: rgb(2, 255, 255);
+}
+
+div.transactions-cont div.transaction-display h6, div.transactions-cont div.transaction-display p {
+  margin: 10px;
+  
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ Styles ~~~~~~~~~~~~~~~~~~~~ */
+body {
+  background-color: rgba(255,255,255,0) !important;
+}
+
+.transaction-display {
+  border: 1px solid;
+}
+
+.main-svg {
+  background: rgba(0,0,0,.1) !important;
+  
+}
+
+.form-inline {
+  margin-left: 25px;
+}
+.nsewdrag {
+  fill: rgba(0,0,0,.5) !important;
+}
+p{
+  color:coral;
+}
+h2{
+  color: rgb(255, 196, 0);
+}
+h3 {
+  color: rgb(255,196,0);
+}
+h4 {
+  color: rgb(255, 0, 170);
+}
+h6 {
+  color: coral;
 }
