@@ -8,7 +8,7 @@
 - [CoinGecko API](https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum&order=market_cap_desc&per_page=100&page=1&sparkline=false)
 
 - [ Frontend github repo link](https://github.com/BPdg06/cryptoApp_frontend/tree/dev)
-- [Frontend deployment link](https://mystifying-villani-51e1b2.netlify.app/)
+- [Frontend deployment link](https://crypto-app-frontend.vercel.app/)
 
 - [ Backend github repo link](https://github.com/taylorhughes291/crypto-backend/tree/dev)
 - [ Backend deployment link](https://crypto-backend-project3.herokuapp.com/)
